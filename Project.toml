@@ -1,0 +1,17 @@
+name = "TestH3"
+uuid = "ccaaa510-5a6b-47e4-b885-5ad2768d0f49"
+authors = ["WooKyoung Noh <wookay.noh@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+H3 = "f62fece2-b996-571a-b4c9-e662aba1c617"
+
+[compat]
+H3 = "0.3"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+Jive = "ba5e3d4b-8524-549f-bc71-e76ad9e9deed"
+
+[targets]
+test = ["Test", "Jive"]
