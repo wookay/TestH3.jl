@@ -16,27 +16,17 @@ jobs:
         julia-arch: [x86]
         os: [windows-latest]
 
+    steps:
+    - uses: actions/checkout@v4
+
     - name: Set up MinGW
       uses: egor-tensin/setup-mingw@v2
       with:
         platform: x86
 
-    steps:
-    - uses: actions/checkout@v4
     - uses: julia-actions/setup-julia@v1
       with:
         version: ${{ matrix.julia-version }}
     - uses: julia-actions/cache@v1
     - uses: julia-actions/julia-buildpkg@v1
     - uses: julia-actions/julia-runtest@v1
-
-  Coverage:
-    needs: Test
-    if: github.event.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: julia-actions/setup-julia@v1
-      - uses: julia-actions/cache@v1
-      - uses: julia-actions/julia-buildpkg@v1
-      - uses: julia-actions/julia-runtest@v1
